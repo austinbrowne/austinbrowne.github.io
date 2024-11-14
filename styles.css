@@ -31,8 +31,6 @@ body {
 .header__nav {
     margin-left: auto;
     position:absolute;
-    top: 20px;
-    right: 10px;
 }
 
 .nav__list {
