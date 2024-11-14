@@ -1,0 +1,170 @@
+/* General Reset and Box-Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+.header {
+    background-color: #222;
+    color: white;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.header__logo img {
+    max-width: 150px;
+}
+
+.header__nav {
+    margin-left: auto;
+}
+
+.nav__list {
+    display: flex;
+    gap: 20px;
+}
+
+.nav__item {
+    list-style: none;
+}
+
+.nav__link {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav__link:hover {
+    color: #e50914;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #222;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero__title {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero__subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    background-color: #e50914;
+    color: white;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: #b20710;
+}
+
+/* Section Styles */
+.section {
+    padding: 50px 20px;
+}
+
+.section__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+/* Episode and Review Cards */
+.episodes__list, .reviews__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.episode-card, .review-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.episode-card:hover, .review-card:hover {
+    transform: translateY(-5px);
+}
+
+.episode-card__title, .review-card__title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.episode-card__summary, .review-card__summary {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.episode-card__link, .review-card__link {
+    color: #e50914;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.episode-card__link:hover, .review-card__link:hover {
+    text-decoration: underline;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contact__message {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.contact__button {
+    background-color: #e50914;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact__button:hover {
+    background-color: #b20710;
+}
+
+/*
