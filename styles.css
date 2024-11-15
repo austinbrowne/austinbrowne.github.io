@@ -11,17 +11,20 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
+    padding: 0 1rem;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header Styling */
 .header {
     background-color: #222;
     color: white;
-    padding: 1rem 0;
+    padding: 0.5rem 1rem; /* Reduced padding to bring header closer to the top */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    flex-wrap: wrap;
 }
 
 .header__logo img {
@@ -29,15 +32,15 @@ body {
 }
 
 .header__nav {
-    margin-left: auto;
-    position:absolute;
-    top: 20px;
-    right: 10px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 4%; /* Removed unnecessary margin */
 }
 
 .nav__list {
     display: flex;
-    gap: 20px;
+    gap: 1rem;
 }
 
 .nav__item {
@@ -62,28 +65,29 @@ body {
     background-color: #222;
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 60vh;
     text-align: center;
-    padding: 20px;
+    padding: 2rem 1rem;
 }
 
 .hero__title {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .hero__subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 25px;
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
 }
 
 .cta-button {
     background-color: #e50914;
     color: white;
     font-weight: 600;
-    padding: 12px 25px;
+    padding: 0.75rem 1.5rem;
     border-radius: 5px;
     text-transform: uppercase;
     text-decoration: none;
@@ -95,27 +99,28 @@ body {
 
 /* Section Styles */
 .section {
-    padding: 50px 20px;
+    padding: 3rem 1rem;
 }
 
 .section__title {
-    text-align: center;
     font-size: 2rem;
-    margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 /* Episode and Review Cards */
 .episodes__list, .reviews__list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
 }
 
 .episode-card, .review-card {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 1.25rem;
     transition: transform 0.3s;
 }
 
@@ -124,13 +129,13 @@ body {
 }
 
 .episode-card__title, .review-card__title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
 }
 
 .episode-card__summary, .review-card__summary {
     font-size: 1rem;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     color: #666;
 }
 
@@ -149,25 +154,142 @@ body {
     background-color: #222;
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 2.5rem 1rem;
 }
 
 .contact__message {
-    font-size: 1.25rem;
-    margin-bottom: 20px;
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
 }
 
 .contact__button {
     background-color: #e50914;
     color: white;
-    padding: 12px 25px;
+    padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: 600;
     text-decoration: none;
+    display: inline-block;
 }
 
 .contact__button:hover {
     background-color: #b20710;
 }
 
-/*
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.footer__social {
+    margin-top: 1rem;
+}
+
+.footer__social-link {
+    color: #e50914;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.footer__social-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0.5rem;
+    }
+
+    .header__logo {
+        margin-bottom: 1rem;
+    }
+
+    .header__nav {
+        width: 100%;
+    }
+
+    .nav__list {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav__link {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem 1rem;
+    }
+
+    .section {
+        padding: 2rem 1rem;
+    }
+
+    .section__title {
+        font-size: 1.75rem;
+    }
+
+    .episodes__list, .reviews__list {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__message {
+        font-size: 1rem;
+    }
+
+    .contact__button {
+        padding: 0.5rem 1rem;
+    }
+
+    .footer__text, .footer__social {
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 400px) {
+    .hero__title {
+        font-size: 1.75rem;
+    }
+
+    .hero__subtitle {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem 1rem;
+    }
+
+    .nav__list {
+        gap: 0.5rem;
+    }
+
+    .episode-card__title, .review-card__title {
+        font-size: 1rem;
+    }
+
+    .episode-card__summary, .review-card__summary {
+        font-size: 0.85rem;
+    }
+
+    .footer__social-link {
+        margin: 0 0.25rem;
+    }
+}
