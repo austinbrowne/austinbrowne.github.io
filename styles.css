@@ -8,8 +8,8 @@
 /* Body Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #000000; /* Primary Background */
+    color: #FFFFFF; /* Primary Text Color */
     line-height: 1.6;
     padding: 0 1rem;
     max-width: 100%;
@@ -18,9 +18,9 @@ body {
 
 /* Header Styling */
 .header {
-    background-color: #222;
-    color: white;
-    padding: 0.5rem 1rem; /* Reduced padding to bring header closer to the top */
+    background-color: #14213D; /* Secondary Background */
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,20 +35,15 @@ body {
     display: flex;
     align-items: center;
     margin: 0;
-    margin-bottom: 4%; /* Removed unnecessary margin */
 }
 
 .nav__list {
     display: flex;
-    gap: 1rem;
-}
-
-.nav__item {
-    list-style: none;
+    gap: 2rem;
 }
 
 .nav__link {
-    color: white;
+    color: #FFFFFF;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 1rem;
@@ -57,13 +52,13 @@ body {
 }
 
 .nav__link:hover {
-    color: #e50914;
+    color: #FCA311; /* Accent Color */
 }
 
 /* Hero Section */
 .hero {
-    background-color: #222;
-    color: white;
+    background-color: #14213D; /* Secondary Background */
+    color: #FFFFFF;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,75 +79,190 @@ body {
 }
 
 .cta-button {
-    background-color: #e50914;
-    color: white;
+    background-color: #FCA311; /* Accent Color */
+    color: #000000; /* Button Text on Accent Background */
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     text-transform: uppercase;
     text-decoration: none;
+    transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #b20710;
+    background-color: #FFFFFF; /* Hover to White */
+    color: #000000; /* Text to Black */
 }
 
 /* Section Styles */
 .section {
     padding: 3rem 1rem;
+    background-color: #E5E5E5; /* Neutral Background */
 }
 
 .section__title {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 2rem;
+    color: #000000; /* Dark Text for Neutral Background */
 }
 
 /* Episode and Review Cards */
 .episodes__list, .reviews__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     padding: 0 1rem;
 }
 
-.episode-card, .review-card {
-    background-color: white;
+/* General Episode Card Styling */
+.episode-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    padding: 1.25rem;
-    transition: transform 0.3s;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.episode-card:hover, .review-card:hover {
+.episode-card:hover {
     transform: translateY(-5px);
 }
 
-.episode-card__title, .review-card__title {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
+/* Thumbnail Container */
+.episode-card__thumbnail-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* Ensures consistent aspect ratio */
+    background-color: #000; /* Placeholder background */
 }
 
-.episode-card__summary, .review-card__summary {
+.episode-card__thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the thumbnail scales nicely */
+}
+
+/* Details Section */
+.episode-card__details {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.episode-card__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #14213D;
+    margin: 5%;
+}
+
+.episode-card__summary {
+    font-size: 0.95rem;
+    color: #333333;
+    margin: 2%;
+    line-height: 1.4;
+}
+
+.episode-card__link {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #FCA311;
+    text-decoration: none;
+    align-self: flex-start;
+    margin: 2%
+}
+
+.episode-card__link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .episode-card {
+        max-width: 100%;
+    }
+
+    .episode-card__title {
+        font-size: 1rem;
+    }
+
+    .episode-card__summary {
+        font-size: 0.9rem;
+    }
+
+    .episode-card__link {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* News Preview Section */
+.news-preview {
+    background-color: #f4f4f4; /* Light gray background */
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.news-preview .section__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #14213D;
+}
+
+/* News Card Styling */
+.news-card {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-card__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #14213D;
+}
+
+.news-card__date {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #666666;
+}
+
+.news-card__content {
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: #666;
+    color: #333333;
 }
 
-.episode-card__link, .review-card__link {
-    color: #e50914;
-    font-weight: 600;
+.news-card__link {
+    color: #FCA311;
+    font-weight: bold;
     text-decoration: none;
 }
 
-.episode-card__link:hover, .review-card__link:hover {
+.news-card__link:hover {
     text-decoration: underline;
 }
 
 /* Contact Section */
 .contact {
-    background-color: #222;
-    color: white;
+    background-color: #14213D; /* Secondary Background */
+    color: #FFFFFF;
     text-align: center;
     padding: 2.5rem 1rem;
 }
@@ -163,26 +273,28 @@ body {
 }
 
 .contact__button {
-    background-color: #e50914;
-    color: white;
+    background-color: #FCA311; /* Accent Color */
+    color: #000000; /* Button Text */
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: 600;
     text-decoration: none;
-    display: inline-block;
+    transition: background-color 0.3s;
 }
 
 .contact__button:hover {
-    background-color: #b20710;
+    background-color: #FFFFFF; /* Hover to White */
+    color: #000000; /* Text to Black */
 }
 
 /* Footer Styles */
 .footer {
-    background-color: #333;
-    color: white;
+    background-color: #14213D; /* Secondary Background */
+    color: #FFFFFF;
     padding: 1.5rem;
     text-align: center;
     font-size: 0.875rem;
+    position: relative;
 }
 
 .footer__social {
@@ -190,7 +302,7 @@ body {
 }
 
 .footer__social-link {
-    color: #e50914;
+    color: #FCA311; /* Accent Color */
     text-decoration: none;
     margin: 0 0.5rem;
 }
@@ -199,141 +311,47 @@ body {
     text-decoration: underline;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0.5rem;
-    }
-
-    .header__logo {
-        margin-bottom: 1rem;
-    }
-
-    .header__nav {
-        width: 100%;
-    }
-
-    .nav__list {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .nav__link {
-        font-size: 0.9rem;
-        padding: 0.5rem;
-    }
-
-    .hero__title {
-        font-size: 2rem;
-    }
-
-    .hero__subtitle {
-        font-size: 1rem;
-    }
-
-    .cta-button {
-        padding: 0.5rem 1rem;
-    }
-
-    .section {
-        padding: 2rem 1rem;
-    }
-
-    .section__title {
-        font-size: 1.75rem;
-    }
-
-    .episodes__list, .reviews__list {
-        grid-template-columns: 1fr;
-    }
-
-    .contact__message {
-        font-size: 1rem;
-    }
-
-    .contact__button {
-        padding: 0.5rem 1rem;
-    }
-
-    .footer__text, .footer__social {
-        font-size: 0.8rem;
-    }
-}
-
-/* Extra Small Screens */
-@media (max-width: 400px) {
-    .hero__title {
-        font-size: 1.75rem;
-    }
-
-    .hero__subtitle {
-        font-size: 0.9rem;
-    }
-
-    .cta-button {
-        padding: 0.5rem 1rem;
-    }
-
-    .nav__list {
-        gap: 0.5rem;
-    }
-
-    .episode-card__title, .review-card__title {
-        font-size: 1rem;
-    }
-
-    .episode-card__summary, .review-card__summary {
-        font-size: 0.85rem;
-    }
-
-    .footer__social-link {
-        margin: 0 0.25rem;
-    }
-}
-
-/* News Section */
+/* News Section Layout */
 .news__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 0 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Fit up to 5 articles per row */
+    gap: 2rem; /* Space between articles */
+    padding: 1rem;
 }
 
 .news-card {
-    background-color: white;
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Black text */
     border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    padding: 1.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
     transition: transform 0.3s;
 }
 
 .news-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Subtle hover effect */
 }
 
 .news-card__title {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: #14213D; /* Dark Blue */
 }
 
 .news-card__date {
     font-size: 0.9rem;
     margin-bottom: 1rem;
-    color: #666;
+    color: #666666; /* Muted Text */
 }
 
 .news-card__content {
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: #555;
+    color: #333333; /* Darker Content Text */
 }
 
 .news-card__link {
-    color: #e50914;
+    color: #FCA311; /* Accent Color */
     font-weight: 600;
     text-decoration: none;
 }
@@ -342,3 +360,125 @@ body {
     text-decoration: underline;
 }
 
+/* Responsive Grid Behavior */
+@media (max-width: 1024px) {
+    .news__list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .news__list {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust for mobile screens */
+    }
+}
+
+/* Article Section */
+.article {
+    background-color: #FFFFFF; /* White Background */
+    color: #000000; /* Black Text */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px; /* Limit max width for better readability */
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.article__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #14213D; /* Dark Blue Title */
+}
+
+.article__author {
+    font-size: 1rem;
+    font-style: italic;
+    color: #666666; /* Muted Color */
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.article__date {
+    font-size: 0.9rem;
+    color: #666666; /* Muted Color */
+    margin-bottom: 1.5rem;
+}
+
+.article__content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #333333; /* Slightly Muted Content Text */
+    margin-bottom: 2rem;
+}
+
+/* Suggested Articles Section */
+.suggested {
+    margin-top: 3rem;
+}
+
+.suggested__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #14213D; /* Dark Blue Title */
+}
+
+.news__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .article {
+        padding: 1rem;
+    }
+
+    .article__title {
+        font-size: 1.5rem;
+    }
+
+    .article__content {
+        font-size: 1rem;
+    }
+}
+
+.indented {
+    text-indent: 2em; /* Adjust the size of the indent */
+    display: inline; /* Ensure inline behavior */
+}
+
+.article__content p {
+    margin-bottom: 1.5rem; /* Add spacing between paragraphs */
+    line-height: 1.8; /* Improve readability */
+}
+
+/* Ensure the HTML and Body take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content should grow to fill available space */
+main {
+    flex: 1; /* Pushes the footer to the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #14213D; /* Footer background color */
+    color: #FFFFFF; /* Footer text color */
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.875rem;
+    width: 100%;
+}

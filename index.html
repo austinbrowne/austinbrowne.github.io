@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="In-depth gaming mouse reviews, the latest in gaming peripherals, and all things gaming hardware.">
-    <title>MouseCast with Phalanges and Dazztrazak</title>
+    <title>MouseCast Podcast</title>
     <!-- External CSS -->
     <link rel="stylesheet" href="styles.css">
     <!-- Web Font (optional) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script defer src="main.js"></script>
 </head>
 <body>
     <header class="header">
         <div class="header__logo">
-            <img src="phalanges_logo_plaid.png" alt="Gaming Mouse Review Podcast Logo" />
+            <img src="phalanges_logo_plaid.png" alt="" />
         </div>
         <nav class="header__nav">
             <ul class="nav__list">
                 <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
                 <li class="nav__item"><a href="#episodes" class="nav__link">Episodes</a></li>
-                <li class="nav__item"><a href="#reviews" class="nav__link">Reviews</a></li>
                 <li class="nav__item"><a href="news.html" class="nav__link">News</a></li>
                 <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
             </ul>
@@ -31,42 +31,26 @@
             <div class="hero__content">
                 <h1 class="hero__title">MouseCast with Phalanges and Dazztrazak</h1>
                 <p class="hero__subtitle">The ultimate source for honest, in-depth insights into the latest gaming mice and peripherals.</p>
-                <a href="https://www.youtube.com/@ManPhalanges" class="cta-button">Listen Now</a>
+                <a href="https://www.youtube.com/playlist?list=PLeZ6YstWzTKvbe0dmWj9iqWg6zDXXlw0T" class="cta-button">Listen Now</a>
             </div>
         </section>
 
         <section id="episodes" class="section episodes">
             <h2 class="section__title">Latest Episodes</h2>
             <div class="episodes__list">
-                <!-- Episode Card -->
-                <article class="episode-card">
-                    <h3 class="episode-card__title">Episode 1: Intro and Latest Gaming News</h3>
-                    <p class="episode-card__summary">We give some info on who we are and the latest happenings in the space.</p>
-                    <a href="https://www.youtube.com/watch?v=rgURKS5hSbI" class="episode-card__link">Listen to this episode</a>
-                </article>
             </div>
         </section>
+        
 
-        <section id="reviews" class="section reviews">
-            <h2 class="section__title">Featured Reviews</h2>
-            <div class="reviews__list">
-                <!-- Review Card -->
-                <article class="review-card">
-                    <h3 class="review-card__title">Razer DeathAdder V3 Review</h3>
-                    <p class="review-card__summary">The iconic Razer DeathAdder V3 is back with improved features—find out if it’s worth the upgrade!</p>
-                    <a href="#" class="review-card__link">Read Full Review</a>
-                </article>
-                <!-- Another Review Card -->
-                <article class="review-card">
-                    <h3 class="review-card__title">Logitech G Pro X Superlight Review</h3>
-                    <p class="review-card__summary">The Logitech G Pro X Superlight continues to dominate the competitive gaming scene. We break it down.</p>
-                    <a href="#" class="review-card__link">Read Full Review</a>
-                </article>
+        <section id="news-preview" class="section news-preview">
+            <h2 class="section__title">Latest News</h2>
+            <div id="news-preview-container" class="news__list">
+                <!-- Latest news articles will be dynamically loaded here -->
             </div>
         </section>
 
         <section id="contact" class="section contact">
-            <h2 class="section__title">Contact Us</h2>
+            <h2 class="contact__title">Contact Us</h2>
             <p class="contact__message">Have questions or want to suggest a gaming mouse for review? Reach out to us!</p>
             <a href="mailto:phalangesco@gmail.com" class="cta-button contact__button">Email Us</a>
         </section>
