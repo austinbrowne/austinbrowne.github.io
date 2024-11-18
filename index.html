@@ -10,6 +10,7 @@
     <!-- Web Font (optional) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script defer src="main.js"></script>
+    <script defer src="fetchEpisodes.js"></script>
 </head>
 <body>
     <header class="header">
@@ -34,17 +35,16 @@
                 <a href="https://www.youtube.com/playlist?list=PLeZ6YstWzTKvbe0dmWj9iqWg6zDXXlw0T" class="cta-button">Listen Now</a>
             </div>
         </section>
-
-        <section id="episodes" class="section episodes">
+        
+        <section id="videos" class="section videos">
             <h2 class="section__title">Latest Episodes</h2>
-            <div class="episodes__list">
-                <!-- Latest episodes will be dynamically loaded here -->
+            <div id="videos-container" class="episodes__list">
+                <!-- Videos will be dynamically loaded here -->
             </div>
             <div class="cta-button-container" style="text-align: center;">
                 <a href="episodes.html" class="cta-button">View All Episodes</a>
             </div>
         </section>
-        
 
         <section id="news-preview" class="section news-preview">
             <h2 class="section__title">Latest News</h2>

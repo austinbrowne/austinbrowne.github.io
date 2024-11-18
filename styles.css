@@ -163,6 +163,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    justify-content: space-between; /* Ensure content is spaced out */
 }
 
 .episode-card__title {

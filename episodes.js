@@ -1,48 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const playlistId = "PLeZ6YstWzTKvbe0dmWj9iqWg6zDXXlw0T";
+    const apiKey = "AIzaSyBpU6i4uwVQlNN9nEry20b4Su8vxrIxOt8";
     const episodesContainer = document.getElementById("episodes-container");
 
-    // Helper to parse dates for sorting
-    const parseDate = (dateString) => new Date(dateString);
+    const fetchEpisodes = async () => {
+        try {
+            const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${playlistId}&key=${apiKey}`);
+            const data = await response.json();
 
-    // Fetch and display episodes
-    const fetchAndDisplayEpisodes = (container, limit = null) => {
-        fetch("episodes.json")
-            .then((response) => response.json())
-            .then((episodes) => {
-                // Sort episodes by most recent
-                episodes.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+            const episodes = data.items.map(item => ({
+                videoId: item.snippet.resourceId.videoId,
+                title: item.snippet.title,
+                description: item.snippet.description,
+                thumbnail: item.snippet.thumbnails.high.url,
+                publishedAt: new Date(item.snippet.publishedAt),
+                url: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`
+            }));
 
-                // Display episodes (limit if specified)
-                (limit ? episodes.slice(0, limit) : episodes).forEach((episode) => {
-                    // Extract YouTube video ID
-                    const videoId = episode.youtubeLink.split("v=")[1];
-                    const thumbnailUrl = `http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+            // Sort episodes by publish date
+            episodes.sort((a, b) => b.publishedAt - a.publishedAt);
 
-                    // Create episode card
-                    const episodeCard = document.createElement("article");
-                    episodeCard.className = "episode-card";
+            episodes.forEach(episode => {
+                const episodeCard = document.createElement("article");
+                episodeCard.className = "episode-card";
 
-                    episodeCard.innerHTML = `
-                        <a href="${episode.youtubeLink}">
-                            <img class="episode-card__thumbnail" src="${thumbnailUrl}" alt="${episode.title} Thumbnail">
-                        </a>
-                        <div class="episode-card__details">
-                            <h3 class="episode-card__title">${episode.title}</h3>
-                            <p class="episode-card__summary">${episode.summary}</p>
-                            <p class="episode-card__date">${episode.date}</p>
-                            <a href="${episode.youtubeLink}" class="episode-card__link">Listen to this episode</a>
-                        </div>
-                    `;
+                episodeCard.innerHTML = `
+                    <a href="${episode.url}" target="_blank">
+                        <img class="episode-card__thumbnail" src="${episode.thumbnail}" alt="${episode.title} Thumbnail">
+                    </a>
+                    <div class="episode-card__details">
+                        <h3 class="episode-card__title">${episode.title}</h3>
+                        <p class="episode-card__date">${episode.publishedAt.toLocaleDateString()}</p>
+                    </div>
+                    <a href="${episode.url}" class="episode-card__link">Listen to this episode</a>
+                `;
 
-                    container.appendChild(episodeCard);
-                });
-            })
-            .catch((error) => {
-                console.error("Error loading episodes:", error);
-                container.innerHTML = "<p>Unable to load episodes at this time.</p>";
+                episodesContainer.appendChild(episodeCard);
             });
+        } catch (error) {
+            console.error("Error fetching episodes:", error);
+            episodesContainer.innerHTML = "<p>Unable to load episodes at this time.</p>";
+        }
     };
 
-    // Display all episodes on the episodes page
-    fetchAndDisplayEpisodes(episodesContainer);
+    fetchEpisodes();
 });
