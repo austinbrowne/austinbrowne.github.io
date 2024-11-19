@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
     const playlistId = "PLeZ6YstWzTKvbe0dmWj9iqWg6zDXXlw0T";
+    const apiKey = "AIzaSyBpU6i4uwVQlNN9nEry20b4Su8vxrIxOt8";
     const episodesContainer = document.getElementById("episodes-container");
 
     const fetchEpisodes = async () => {
         try {
-            const response = await fetch(`https://api.invidious.com/v1/playlists/${playlistId}/videos?maxResults=10`);
+            const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${playlistId}&key=${apiKey}`);
             const data = await response.json();
 
             const episodes = data.items.map(item => ({
-                videoId: item.id,
-                title: item.title,
-                description: item.description,
-                thumbnail: item.thumbnails.high.url,
-                publishedAt: new Date(item.publishedAt),
-                url: `https://www.youtube.com/watch?v=${item.id}`
+                videoId: item.snippet.resourceId.videoId,
+                title: item.snippet.title,
+                description: item.snippet.description,
+                thumbnail: item.snippet.thumbnails.high.url,
+                publishedAt: new Date(item.snippet.publishedAt),
+                url: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`
             }));
 
             // Sort episodes by publish date

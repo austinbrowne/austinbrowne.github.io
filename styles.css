@@ -78,7 +78,7 @@ body {
 
 .hero__subtitle {
     font-size: 1.125rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; /* Increase space between subtitle and button */
 }
 
 .cta-button {
@@ -210,6 +210,10 @@ body {
 
     .episode-card__link {
         font-size: 0.85rem;
+    }
+
+    .hero__subtitle {
+        margin-bottom: 1.5rem; /* Adjust space for smaller screens */
     }
 }
 
